@@ -1,0 +1,10 @@
+.idea/
+.vscode/
+.settings/
+.gradle/
+
+.classpath
+.project
+
+bin/
+build/
