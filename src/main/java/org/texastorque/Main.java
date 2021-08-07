@@ -3,8 +3,8 @@ package org.texastorque;
 import java.util.List;
 import java.util.Map;
 
-import org.texastorque.data.type.Point2DType;
-import org.texastorque.widget.Point2DWidget;
+import org.texastorque.data.type.*;
+import org.texastorque.widget.*;
 
 import edu.wpi.first.shuffleboard.api.data.DataType;
 import edu.wpi.first.shuffleboard.api.plugin.Description;
@@ -25,16 +25,18 @@ import edu.wpi.first.shuffleboard.api.widget.WidgetType;
 public final class Main extends Plugin {
     @Override
     public List<DataType> getDataTypes() {
-        return List.of(Point2DType.INSTANCE);
+        return List.of(Point2DType.INSTANCE, PIDManagerType.INSTANCE);
     }
 
     @Override
     public List<ComponentType> getComponents() {
-        return List.of(WidgetType.forAnnotatedWidget(Point2DWidget.class));
+        return List.of(WidgetType.forAnnotatedWidget(Point2DWidget.class),
+                WidgetType.forAnnotatedWidget(PIDManagerWidget.class));
     }
 
     @Override
     public Map<DataType, ComponentType> getDefaultComponents() {
-        return Map.of(Point2DType.INSTANCE, WidgetType.forAnnotatedWidget(Point2DWidget.class));
+        return Map.of(Point2DType.INSTANCE, WidgetType.forAnnotatedWidget(Point2DWidget.class), PIDManagerType.INSTANCE,
+                WidgetType.forAnnotatedWidget(PIDManagerWidget.class));
     }
 }
