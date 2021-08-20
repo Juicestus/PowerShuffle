@@ -25,18 +25,20 @@ import edu.wpi.first.shuffleboard.api.widget.WidgetType;
 public final class Main extends Plugin {
     @Override
     public List<DataType> getDataTypes() {
-        return List.of(Point2DType.INSTANCE, PIDManagerType.INSTANCE);
+        return List.of(Point2DType.INSTANCE, PIDManagerType.INSTANCE, SwerveModuleType.INSTANCE);
     }
 
     @Override
     public List<ComponentType> getComponents() {
         return List.of(WidgetType.forAnnotatedWidget(Point2DWidget.class),
-                WidgetType.forAnnotatedWidget(PIDManagerWidget.class));
+                WidgetType.forAnnotatedWidget(PIDManagerWidget.class),
+                WidgetType.forAnnotatedWidget(SwerveModuleWidget.class));
     }
 
     @Override
     public Map<DataType, ComponentType> getDefaultComponents() {
         return Map.of(Point2DType.INSTANCE, WidgetType.forAnnotatedWidget(Point2DWidget.class), PIDManagerType.INSTANCE,
-                WidgetType.forAnnotatedWidget(PIDManagerWidget.class));
+                WidgetType.forAnnotatedWidget(PIDManagerWidget.class), SwerveModuleType.INSTANCE,
+                WidgetType.forAnnotatedWidget(SwerveModuleWidget.class));
     }
 }

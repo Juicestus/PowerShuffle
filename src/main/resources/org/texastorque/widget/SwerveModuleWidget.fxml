@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<VBox
+  xmlns="http://javafx.com/javafx"
+  xmlns:fx="http://javafx.com/fxml"
+  fx:controller="org.texastorque.widget.SwerveModuleWidget"
+  fx:id="root"
+  alignment="center"
+  minWidth="200" minHeight="100"
+  >
+  <FlowPane>
+      <Label text="0.000" fx:id="Rs"/>
+      <Label text="0.000" fx:id="S"/>
+      <Label text="0.000" fx:id="Rt"/> 
+      <Label text="0.000" fx:id="T"/> 
+  </FlowPane>
+</VBox>
