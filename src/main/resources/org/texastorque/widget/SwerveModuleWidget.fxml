@@ -1,20 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.VBox?>
-<VBox
-  xmlns="http://javafx.com/javafx"
-  xmlns:fx="http://javafx.com/fxml"
-  fx:controller="org.texastorque.widget.SwerveModuleWidget"
-  fx:id="root"
-  alignment="center"
-  minWidth="200" minHeight="100"
-  >
-  <FlowPane>
-      <Label text="0.000" fx:id="Rs"/>
-      <Label text="0.000" fx:id="S"/>
-      <Label text="0.000" fx:id="Rt"/> 
-      <Label text="0.000" fx:id="T"/> 
-  </FlowPane>
-</VBox>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import edu.wpi.first.shuffleboard.api.components.LinearIndicator?>
+<GridPane
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="org.texastorque.widget.SwerveModuleWidget"
+        fx:id="root"
+        hgap="12" vgap="4"
+        alignment="center"
+        minWidth="120" minHeight="120"
+>
+    <padding>
+        <Insets top="8" right="16" bottom="8" left="8"/>
+    </padding>
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints hgrow="ALWAYS"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="24"/>
+        <RowConstraints minHeight="24"/>
+        <RowConstraints minHeight="24"/>
+        <RowConstraints minHeight="24"/>
+    </rowConstraints>
+    <Label text="S" labelFor="${S}" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Label text="Rs" labelFor="${Rs}" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label text="T" labelFor="${T}" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Label text="R" labelFor="${Rt}" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+
+    <StackPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <LinearIndicator fx:id="RsIndicator" showTickMarks="false" showTickLabels="false"
+                         StackPane.alignment="TOP_CENTER"/>
+        <Label fx:id="Rs" StackPane.alignment="TOP_CENTER"/>
+    </StackPane>
+    <StackPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <LinearIndicator fx:id="SIndicator" min="${RsIndicator.min}" max="${RsIndicator.max}" showTickMarks="false"
+                         showTickLabels="false"
+                         StackPane.alignment="TOP_CENTER"/>
+        <Label fx:id="S" StackPane.alignment="TOP_CENTER"/>
+    </StackPane>
+    <StackPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <LinearIndicator fx:id="RtIndicator" showTickMarks="false" showTickLabels="false"
+                         StackPane.alignment="TOP_CENTER"/>
+        <Label fx:id="Rt" StackPane.alignment="TOP_CENTER"/>
+    </StackPane>
+    <StackPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <LinearIndicator fx:id="TIndicator" min="${RtIndicator.min}" max="${RtIndicator.max}" showTickMarks="false"
+                         showTickLabels="false"
+                         StackPane.alignment="TOP_CENTER"/>
+        <Label fx:id="T" StackPane.alignment="TOP_CENTER"/>
+    </StackPane>
+</GridPane>
